@@ -6,7 +6,7 @@ import {
   getComponentChunkLinks,
   getIconLinks,
   getMetaTagsAndIconLinks
-} from '@porsche-design-system/components-react/ssr/partials';
+} from '@porsche-design-system/components-react/partials';
 
 export default function Head() {
   return (
