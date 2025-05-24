@@ -13,7 +13,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { PSpinner, PText } from '@porsche-design-system/components-react/ssr';
+import { PSpinner } from '@porsche-design-system/components-react/ssr';
 
 const DefaultIcon = L.icon({
   iconUrl: typeof iconUrl === 'string' ? iconUrl : iconUrl.src,

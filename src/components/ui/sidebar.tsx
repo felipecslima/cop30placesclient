@@ -1,4 +1,4 @@
-// src/components/ui/Sidebar.tsx
+// src/components/ui/sidebar.tsx
 'use client';
 
 import { useState } from 'react';
@@ -8,11 +8,10 @@ import {
   PModal,
   PText,
   PDivider,
-  PTextField,
-  PTextFieldWrapper,
+  PSelectWrapper,
 } from '@porsche-design-system/components-react/ssr';
 
-export function Sidebar() {
+export function SidebarUi() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -91,30 +90,40 @@ function SidebarContent({
     <div className="space-y-6">
       <div>
         <PText weight="semibold">Cidades</PText>
-        <PTextFieldWrapper>
-          <PTextField
-            type="text"
+        <PSelectWrapper dropdownDirection="down" native={false}>
+          <select
             value={selectedCity}
-            onInput={(e) => setSelectedCity((e.target as HTMLInputElement).value)}
-            placeholder="Digite uma cidade"
-            icon="location-city"
-          />
-        </PTextFieldWrapper>
+            onChange={(e) => setSelectedCity(e.target.value)}
+            className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Selecione uma cidade</option>
+            {cities.map((city) => (
+              <option key={city} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
+        </PSelectWrapper>
       </div>
 
       <PDivider />
 
       <div>
         <PText weight="semibold">Categorias</PText>
-        <PTextFieldWrapper>
-          <PTextField
-            type="text"
+        <PSelectWrapper dropdownDirection="down" native={false}>
+          <select
             value={selectedCategory}
-            onInput={(e) => setSelectedCategory((e.target as HTMLInputElement).value)}
-            placeholder="Digite uma categoria"
-            icon="tag"
-          />
-        </PTextFieldWrapper>
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Selecione uma categoria</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </PSelectWrapper>
       </div>
     </div>
   );
